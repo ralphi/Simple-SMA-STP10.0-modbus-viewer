@@ -27,12 +27,13 @@
 			$i = 18; // head 18  
 			$reg = 0; // count Reg
 			while ($reg < $item['anz']) {
+				$ty = $item['type'][$reg];
 				$blen = 8;		// default 32bit
-				if ($item['type'][$reg] == 'q') $blen = 16; // set 64bit
+				if ($ty == 'q') $blen = 16; // set 64bit
 				$hexpart = substr($resp, $i, $blen);
 				
 				// hexzeichenkette in dec
-				$tmp = unpack("l", pack("l", hexdec($hexpart)));
+				$tmp = unpack($ty, pack($ty, hexdec($hexpart)));
 				$raw = reset($tmp);
 				$val = $raw*$item['fkt'][$reg]; // mit Faktor multiplizieren
 				
