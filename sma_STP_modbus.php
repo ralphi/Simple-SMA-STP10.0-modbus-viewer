@@ -24,7 +24,7 @@
 // ***************************************************************
 		function splithex ($resp, $item) {
 			GLOBAL $arr_out, $arr_dbout;
-			$i = 18; // head 18 Byte 
+			$i = 18; // head 18  
 			$reg = 0; // count Reg
 			while ($reg < $item['anz']) {
 				$blen = 8;		// default 32bit
